@@ -52,8 +52,8 @@ const part3 = new THREE.Mesh(
 group.add(part3)
 part3.position.x=1.5
 
-group.rotation.z = 0.7
-group.rotation.y = 0.7
+group.rotation.z = 0.5
+group.rotation.y = 0.9
 
 scene.add(group)
 scene.add(mesh)
