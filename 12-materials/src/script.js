@@ -18,7 +18,20 @@ gradientTexture.minFilter = THREE.NearestFilter;
 gradientTexture.magFilter = THREE.NearestFilter;
 gradientTexture.generateMipmaps = false;
 
+const doorColorTexture = texture.load('/textures/door/color.jpg');
+const doorAmbientTexture = texture.load('/textures/door/ambientOcclusion.jpg');
+const doorHeightTexture = texture.load('/textures/door/height.jpg');
+const doorNormalexture = texture.load('/textures/door/normal.jpg');
 
+const cubeTexture = new THREE.CubeTextureLoader()
+const environmentMapTexture = cubeTexture.load([
+    '/textures/environmentMaps/0/px.jpg',
+    '/textures/environmentMaps/0/nx.jpg',
+    '/textures/environmentMaps/0/py.jpg',
+    '/textures/environmentMaps/0/ny.jpg',
+    '/textures/environmentMaps/0/pz.jpg',
+    '/textures/environmentMaps/0/nz.jpg'
+]);
 
 ////MeshBasicMaterial
 // const material = new THREE.MeshBasicMaterial({color:'red'})
@@ -46,20 +59,44 @@ gradientTexture.generateMipmaps = false;
  //MeshPhongMaterial   // reacts good to light, but more load put on GP
  //const material = new THREE.MeshPhongMaterial();
 
- //MeshToonMaterial  // Caertoonish
- const material = new THREE.MeshToonMaterial();
- material.gradientMap = gradientTexture
+//  //MeshToonMaterial  // Caertoonish
+//  const material = new THREE.MeshToonMaterial();
+//  material.gradientMap = gradientTexture
 
- material.shininess = 199
- material.specular = new THREE.Color('blue') // shining colour visible on mesh
+//  material.shininess = 199
+//  material.specular = new THREE.Color('blue') // shining colour visible on mesh
+
+const material = new THREE.MeshStandardMaterial();
+// material.map = doorColorTexture;
+// material.aoMap = doorAmbientTexture;
+// material.aoMapIntensity = 1
+// material.side = THREE.DoubleSide  // enabling both sides to view
+
+// material.displacementMap = doorHeightTexture;
+// material.displacementScale = 0.1;
+
+// material.normalMap = doorNormalexture;
+
+// material.alphaMap = alphaTexture;
+// material.transparent = true
+
+material.envMap = environmentMapTexture
+material.metalness = 0.7;
+material.roughness = 0;
+
  
 //Geometries
 const torusGeometry = new THREE.TorusGeometry( 0.3, 0.1, 16, 32 )
 const torus = new THREE.Mesh( torusGeometry, material)
 
-const planeGeometry = new THREE.PlaneGeometry( 1, 1 );
+const planeGeometry = new THREE.PlaneGeometry( 1, 1 ,100,100);
 const plane = new THREE.Mesh( planeGeometry, material );
 plane.position.x = -1
+
+plane.geometry.setAttribute(
+    'uv2',
+    new THREE.BufferAttribute(plane.geometry.attributes.uv.array,2)
+)
 
 const sphereGeometry = new THREE.SphereGeometry( 0.5, 16, 16 ); 
 const sphere = new THREE.Mesh( sphereGeometry, material );
