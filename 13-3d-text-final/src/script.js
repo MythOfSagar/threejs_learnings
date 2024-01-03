@@ -27,6 +27,14 @@ const matcapTexture = textureLoader.load('textures/matcaps/8.png')
  */
 const fontLoader = new FontLoader()
 
+
+
+function getRandomElement() {
+    const data = ['Noxious Beats','Chup Kar Gaurav']
+    const randomIndex = Math.floor(Math.random() * data.length);
+    return data[randomIndex];
+  }
+
 fontLoader.load(
     '/fonts/helvetiker_regular.typeface.json',
     (font) =>
@@ -36,7 +44,7 @@ fontLoader.load(
 
         // Text
         const textGeometry = new TextGeometry(
-            'Noxious Beats',
+            getRandomElement(),
             {
                 font: font,
                 size: 0.5,
