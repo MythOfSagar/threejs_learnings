@@ -18,7 +18,7 @@ const scene = new THREE.Scene()
 const numberOfVertices = 3 //always
 const galaxyParameters = {
     count: 267200,
-    size: 0.01,
+    size: 0.02,
     radius: 6,
     branches: 3,
     spin:2,
