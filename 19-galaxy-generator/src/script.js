@@ -33,7 +33,7 @@ let starsPositionsArray;
 let starsColorArray
 let points;
 
-const outerColor = new THREE.Color('blue');
+const outerColor = new THREE.Color('red');
 const innerColor = new THREE.Color('yellow')
 
 const createGalaxy = () => {
