@@ -136,9 +136,17 @@ const tick = () => {
 
 
 
-    allObjects[0].position.y = Math.sin(elapsedTime * 1.4)
-    allObjects[1].position.y = Math.sin(elapsedTime * 1.9)
-    allObjects[2].position.y = Math.sin(elapsedTime * 1.4)
+    allObjects[0].position.x = Math.sin(elapsedTime * 2.4)
+    allObjects[1].position.x = Math.sin(elapsedTime * 1.9)
+    allObjects[2].position.x = Math.sin(elapsedTime * 1.4)
+
+    allObjects[0].position.y = Math.cos(elapsedTime * 2.4)
+    allObjects[1].position.y = Math.cos(elapsedTime * 1.9)
+    allObjects[2].position.y = Math.cos(elapsedTime * 1.4)
+
+    allObjects[0].position.z = Math.tan(elapsedTime * 2.4)
+    allObjects[1].position.z = Math.tan(elapsedTime * 1.9)
+    allObjects[2].position.z = Math.tan(elapsedTime * 1.4)
 
     // Update controls
     controls.update()
