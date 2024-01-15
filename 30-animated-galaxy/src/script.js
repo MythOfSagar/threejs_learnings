@@ -24,10 +24,10 @@ const parameters = {}
 parameters.count = 200000
 parameters.size = 0.005
 parameters.radius = 5
-parameters.branches = 3
+parameters.branches = 5
 parameters.spin = 1
 parameters.randomness = 0.5
-parameters.randomnessPower = 3
+parameters.randomnessPower = 7
 parameters.insideColor = '#ff6030'
 parameters.outsideColor = '#1b3984'
 
