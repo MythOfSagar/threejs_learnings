@@ -197,3 +197,6 @@ const tick = () => {
 generateGalaxy()
 
 tick()
+
+
+gui.destroy()
