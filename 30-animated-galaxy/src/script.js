@@ -199,4 +199,4 @@ generateGalaxy()
 tick()
 
 
-gui.destroy()
+// gui.destroy()
