@@ -29,10 +29,20 @@ const fontLoader = new FontLoader()
 
 
 
+
+const happyBirthDay = 
+``
+
+
+
+
+
+
+
+
 function getRandomElement() {
     const data = [
-   `Osi is a part of Ocean. 
-         (Osi + n)`]
+        happyBirthDay]
     const randomIndex = Math.floor(Math.random() * data.length);
     return data[randomIndex];
   }
@@ -66,13 +76,13 @@ fontLoader.load(
 
         // Donuts
         const donutGeometry = new THREE.TorusGeometry(0.3, 0.2, 32, 64)
-
-        for(let i = 0; i < 100; i++)
+        const spreadRange = 22;
+        for(let i = 0; i < 170; i++)
         {
             const donut = new THREE.Mesh(donutGeometry, material)
-            donut.position.x = (Math.random() - 0.5) * 17.5 + 0
-            donut.position.y = (Math.random() - 0.5) * 17.5 + 0
-            donut.position.z = (Math.random() - 0.5) * 17.5 + 0
+            donut.position.x = (Math.random() - 0.5) * spreadRange + 0
+            donut.position.y = (Math.random() - 0.5) * spreadRange + 0
+            donut.position.z = (Math.random() - 0.5) * spreadRange + 0
             donut.rotation.x = Math.random() * Math.PI
             donut.rotation.y = Math.random() * Math.PI
             const scale = Math.random()
